@@ -1,5 +1,5 @@
 # PrintTreeMultipleNodes
-This is a repository for printing multiple nodes horizontally with python codes.
+This is a repository for printing tree with multiple nodes horizontally with python codes.
 
 ## Files: 
 >1. build_tree.py: this is to build the tree and give the root node.
