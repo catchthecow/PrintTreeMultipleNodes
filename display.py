@@ -234,24 +234,23 @@ def build_tree_bfs(root):
 import argparse
 parser = argparse.ArgumentParser(description='Horizontaly-Print-Multi-tree', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument('--TreeForm',  default='function',  type=str,   help='[function,json]')
+parser.add_argument("--JsonFile", default="tree.json", type = str)
+parser.add_argument("--OutputFile", default="output.txt", type = str, help = "output file")
 args = parser.parse_args()
 
 if args.TreeForm == 'function':
     root_node = buildTree()
 elif args.TreeForm == 'json':
-    root_node = buildTree2("tree.json")
-
+    root_node = buildTree2(args.JsonFile)
 print('End of building tree successful')
-queue = build_tree_bfs(root_node)
-build_tree_bfs(root_node)
+
 lines, height, left, right, mid = _display_aux_multip(root_node, 0)
-#print("lines", lines)
 for line in lines:
     # Step 2: Write content to the file
    print(line)
 print('End of printing tree successful')
 
-with open('output2.txt', 'w') as file:
+with open(args.OutputFile, 'w') as file:
     # Step 2: Write content to the file
     file.write('This is the first line.\n')
     for line in lines:
